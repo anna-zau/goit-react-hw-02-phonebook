@@ -34,7 +34,7 @@ export class App extends React.Component {
   };
 
   changeFilter = evt => {
-    console.log(evt.currentTarget.value);
+//     console.log(evt.currentTarget.value);
     this.setState({ filter: evt.currentTarget.value });
   };
 
