@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // ES6
+import { nanoid } from 'nanoid';
 
 import { FormTag, Label, Input, Button } from './Form.styled';
 
@@ -15,7 +16,7 @@ export class Form extends React.Component {
   handleSubmit = evt => {
     evt.preventDefault();
 
-    this.props.onSubmit(this.state);
+    this.props.onSubmit({ ...this.state, id: nanoid() });
     this.resetForm();
   };
 

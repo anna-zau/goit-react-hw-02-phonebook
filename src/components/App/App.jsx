@@ -1,5 +1,4 @@
 import React from 'react';
-import { nanoid } from 'nanoid';
 
 import { DivSection, Title, TitleTwo } from './App.styled';
 import { Form } from '../Form/Form';
@@ -17,16 +16,15 @@ export class App extends React.Component {
     filter: '',
   };
 
-  addContact = ({ name, number }) => {
+  addContact = ({ name, number, id }) => {
     const { contacts } = this.state;
 
     if (contacts.find(item => item.name === name)) {
-      alert(` ${name} is already in contacts.`);
-    } else {
-      this.setState(prevState => ({
-        contacts: [...prevState.contacts, { id: nanoid(), name, number }],
-      }));
+      return alert(` ${name} is already in contacts.`);
     }
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, { id, name, number }],
+    }));
   };
 
   deleteContact = contactId => {
